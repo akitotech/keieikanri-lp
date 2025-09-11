@@ -3,9 +3,8 @@ import Link from 'next/link';
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
-      {/* Netlify Forms検出用の隠しフォーム */}
-      <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-        <input type="hidden" name="form-name" value="contact" />
+      {/* Cloudflare Forms検出用の隠しフォーム */}
+      <form name="contact" method="POST" data-cloudflare-form="true" hidden>
         <input name="familyName" />
         <input name="firstName" />
         <input name="email" />
@@ -49,18 +48,11 @@ export default function ContactPage() {
                         <form
                           name="contact"
                           method="POST"
-                          data-netlify="true"
-                          data-netlify-honeypot="bot-field"
-                          data-netlify-redirect="/contact/success"
+                          data-cloudflare-form="true"
                           className="grid gap-6"
                         >
-              {/* Netlify Forms用の隠しフィールド */}
+              {/* Cloudflare Forms用の設定 */}
               <input type="hidden" name="form-name" value="contact" />
-              <div style={{ display: 'none' }}>
-                <label>
-                  Don't fill this out if you're human: <input name="bot-field" />
-                </label>
-              </div>
               
               {/* Family Name Field */}
               <div>
